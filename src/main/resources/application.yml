@@ -1,0 +1,32 @@
+server:
+  port: 1234
+
+logging:
+  level:
+    root: DEBUG
+
+auth0:
+  audience: https://foo.bar
+
+spring:  
+  application:
+    name: demo
+  security:
+    oauth2:
+      resourceserver:
+        jwt: 
+          issuer-uri: https://foo-bar.eu.auth0.com/
+      client:
+        registration:
+          m2m: 
+            client-id: "***********************"
+            client-secret: "***********************"
+            authorization-grant-type: client_credentials
+            client-authentication-method: basic
+            scope:
+            - foo
+            - bar
+            provider: auth0
+        provider:
+          auth0:
+            issuer-uri: https://foo-bar.eu.auth0.com/
